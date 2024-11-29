@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@zeddotdev/postgres-context-server": "^0.1.2"
+  }
+}
