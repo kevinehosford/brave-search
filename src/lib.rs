@@ -3,7 +3,7 @@ use std::env;
 use zed::settings::ContextServerSettings;
 use zed_extension_api::{self as zed, serde_json, Command, ContextServerId, Project, Result};
 
-const SERVER_PATH: &str = "lib/server/dist/index.js";
+const SERVER_PATH: &str = "/Users/khosford/source/brave-search/lib/server/dist/index.js";
 
 struct BraveSearchModelContextExtension;
 
@@ -31,11 +31,7 @@ impl zed::Extension for BraveSearchModelContextExtension {
 
         Ok(Command {
             command: "node".to_string(),
-            args: vec![env::current_dir()
-                .unwrap()
-                .join(SERVER_PATH)
-                .to_string_lossy()
-                .to_string()],
+            args: vec![SERVER_PATH.to_string()],
             env: vec![("BRAVE_API_KEY".into(), settings.brave_api_key)],
         })
     }
